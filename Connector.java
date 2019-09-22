@@ -1,17 +1,16 @@
-package jdbc.oracle;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connector {
+    static Connection con=null;
     public static Connection doConnect()
     {
         String url,user_id,pass;
         url="jdbc:oracle:thin:hr/hr@localhost:1521:XE";
         user_id="jdbc";
         pass="123";
-        Connection con=null;
+
         try{
             Class.forName("oracle.jdbc.OracleDriver");
             con= DriverManager.getConnection(url,user_id,pass);
@@ -27,6 +26,12 @@ public class Connector {
             s.printStackTrace();
         }
         return con;
+    }
+
+    static void doClose() throws SQLException {
+        if(con!=null){
+            con.close();
+        }
     }
 
 }

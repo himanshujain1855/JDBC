@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Connector {
     public static Connection doConnect()
     {
-        String url,user_id,pass,q;
+        String url,user_id,pass;
         url="jdbc:oracle:thin:hr/hr@localhost:1521:XE";
         user_id="jdbc";
         pass="123";
